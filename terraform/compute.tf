@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-southeast-1"
 }
 
 terraform {
@@ -97,12 +97,11 @@ module "eks" {
   }
 
 
-  vpc_id     = "vpc-0072899470bf72f18"
-  subnet_ids = ["subnet-0a6e7183b4dccda71", "subnet-0a5b7efb61e20c248"]
+  vpc_id     = "vpc-166cda71"
+  subnet_ids = ["subnet-c62e468f","subnet-7caba63a","subnet-2f017948"]
 
 #########################
   eks_managed_node_groups = {
-    blue = {}
     green = {
       min_size     = 1
       max_size     = 1
@@ -110,7 +109,7 @@ module "eks" {
 
       instance_types = ["t3.medium"]
       capacity_type  = "SPOT"
-      subnet         = "subnet-0a6e7183b4dccda71"
+      subnet         = "subnet-2f017948"
       labels = {
         Environment = "test"
         GithubRepo  = "terraform-aws-eks"
