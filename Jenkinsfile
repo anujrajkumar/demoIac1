@@ -10,7 +10,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-        stage('Test Application') {
+        stage('Application Testing-Unit') {
             steps {
                 echo '=== Testing Petclinic Application ==='
                 sh 'mvn test'
